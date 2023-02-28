@@ -19,7 +19,7 @@ public class MemberController : Controller
     //get method;
     public IActionResult Members()
     {
-        var member = context.Books.ToList();
+        var member = context.Books!.ToList();
         return View(
             member
         );

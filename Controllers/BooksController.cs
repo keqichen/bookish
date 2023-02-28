@@ -19,7 +19,7 @@ public class BooksController : Controller
     //get method;
     public IActionResult Books()
     {
-        var book = context.Books.ToList();
+        var book = context.Books!.ToList();
         // BookModel story = new BookModel (1,"story","Michael","2023-01-01","2023-01-15");
         return View(
             book
@@ -32,7 +32,7 @@ public class BooksController : Controller
         using (context)
         {
             var book = new BookModel(2, "A good story", "Michael", "2012", "2013");
-            context.Books.Add(book);
+            context.Books!.Add(book);
             context.SaveChanges();
         }
     }
