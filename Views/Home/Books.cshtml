@@ -1,31 +1,31 @@
 ﻿@using Bookish.Models;
+@model List<BookModel>;
 
 @{
     ViewData["Title"] = "Books";
-}
-
-@{
-    BookModel story = new BookModel (1,"story","Michael","2023-01-01","2023-01-15");
 }
 
 <h1>@ViewData["Title"]</h1>
 
 <div>
 <table>
-
-<tr>
+    <tr>
     <th>Title</th>
     <th>Author</th>
     <th>Id</th>
     <th>Check-out Date</th>
     <th>Check-in Date</th>
 </tr> 
+
+@foreach(BookModel book in Model){
 <tr>
-    <td>@story.Title</td>
-    <td>@story.Author</td>
-    <td>@story.Id</td>
-    <td>@story.CheckOut</td>
-    <td>@story.CheckIn</td>
+    <td>@book.Title</td>
+    <td>@book.Author</td>
+    <td>@book.Id</td>
+    <td>@book.CheckOut</td>
+    <td>@book.CheckIn</td>
 </tr> 
+}
+
 </table>
 </div>

@@ -18,14 +18,6 @@ public class HomeController : Controller
         return View();
     }
 
-    public IActionResult Books()
-    {
-        // BookModel story = new BookModel (1,"story","Michael","2023-01-01","2023-01-15");
-        return View(
-            "Books"
-        );
-    }
-
     public IActionResult Members()
     {
         return View();
