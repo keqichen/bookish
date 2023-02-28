@@ -15,20 +15,20 @@ build_property.GenerateRazorMetadataSourceChecksumAttributes =
 build_property.MSBuildProjectDirectory = C:\Training\Bookish
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Training/Bookish/Views/Home/Books.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxCb29rcy5jc2h0bWw=
+[C:/Training/Bookish/Views/Books/Books.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQm9va3NcQm9va3MuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Training/Bookish/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Training/Bookish/Views/Home/Members.cshtml]
-build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxNZW1iZXJzLmNzaHRtbA==
-build_metadata.AdditionalFiles.CssScope = 
-
 [C:/Training/Bookish/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/Training/Bookish/Views/Members/Members.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWVtYmVyc1xNZW1iZXJzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Training/Bookish/Views/Shared/Error.cshtml]

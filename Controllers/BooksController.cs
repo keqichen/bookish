@@ -5,8 +5,15 @@ using Bookish.Models;
 
 namespace Bookish.Controllers;
 
-public class BookController : Controller
+public class BooksController : Controller
 {
+    private readonly ILogger<BooksController> _logger;
+
+    public BooksController(ILogger<BooksController> logger)
+    {
+        _logger = logger;
+    }
+
     BookishContext context = new BookishContext();
 
     //get method;
