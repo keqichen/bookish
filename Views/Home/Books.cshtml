@@ -1,7 +1,31 @@
-﻿@{
-    ViewData["Title"] = "Privacy Policy";
+﻿@using Bookish.Models;
+
+@{
+    ViewData["Title"] = "Books";
 }
+
+@{
+    BookModel story = new BookModel (1,"story","Michael","2023-01-01","2023-01-15");
+}
+
 <h1>@ViewData["Title"]</h1>
 
-<p>Books placeholder
-</p>
+<div>
+<table>
+
+<tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Id</th>
+    <th>Check-out Date</th>
+    <th>Check-in Date</th>
+</tr> 
+<tr>
+    <td>@story.Title</td>
+    <td>@story.Author</td>
+    <td>@story.Id</td>
+    <td>@story.CheckOut</td>
+    <td>@story.CheckIn</td>
+</tr> 
+</table>
+</div>
