@@ -17,4 +17,10 @@ public class MemberModel
         LastName = lastName;
         Address = address;
     }
+
+    public MemberModel (string firstName, string lastName, string address){
+        FirstName = firstName;
+        LastName = lastName;
+        Address = address;
+    }
 }

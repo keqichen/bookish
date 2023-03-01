@@ -9,6 +9,7 @@ namespace Bookish
         public DbSet<BookModel>? Books { get; set; }
         public DbSet<MemberModel>? Members { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         { 
             // This is the configuration used for connecting to the database

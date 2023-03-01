@@ -2,8 +2,6 @@ using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using Bookish.Models;
 
-
-
 namespace Bookish.Controllers;
 
 public class BooksController : Controller
@@ -21,14 +19,13 @@ public class BooksController : Controller
     public IActionResult Books()
     {
         var book = context.Books!.ToList();
-        // BookModel story = new BookModel (1,"story","Michael","2023-01-01","2023-01-15");
         return View(
             book
         );
     }
 
     [HttpPost]
-    public IActionResult AddBook(AddBook book)
+    public IActionResult AddBook(AddBookModel book)
     {
         using (context)
         {
@@ -36,19 +33,51 @@ public class BooksController : Controller
             context.Books!.Add(newBook);
             context.SaveChanges();
         }
-
         return RedirectToAction("Books");
     }
 
-// for saving data in the database;
-    // public void Data()
-    // {
-    //     using (context)
-    //     {
-    //         var book = new BookModel(2, "A good story", "Michael", "2012", "2013", 1);
-    //         context.Books!.Add(book);
-    //         context.SaveChanges();
-    //     }
-    // }
+        public IActionResult AddBook()
+    {
+        return View();
+    }
 
+    [HttpPost]
+    public IActionResult CheckOut(CheckOutModel book)
+    {
+        using (context)
+        {
+            var newCheckOut = new BookModel (book.BookId, book.CheckOut, book.MemberId);
+            //updating a existing book here
+            var bookedit = context.Books!.Find(book.BookId);
+            bookedit.MemberId = book.MemberId;
+            
+            context.SaveChanges();
+        }
+        
+        return RedirectToAction("Books");
+    }
+
+            public IActionResult Checkout()
+    {
+        return View();
+    }
+
+
+/*
+    public IActionResult AddMember(AddMemberModel member)
+    {
+        using (context)
+        {
+            var newMember = new MemberModel (member.FirstName, member.LastName, member.Address);
+            context.Members!.Add(newMember);
+            context.SaveChanges();
+        }
+        return RedirectToAction("Members");
+    }
+
+        public IActionResult AddMember()
+    {
+        return View();
+    }
+*/
 }

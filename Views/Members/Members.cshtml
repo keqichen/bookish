@@ -6,6 +6,7 @@
 }
 
 <h1>@ViewData["Title"]</h1>
+<button onclick="@("window.location.href='" + @Url.Action("AddMember", "Members") + "'");">Add a new member</button>
 
 <div>
 <table>

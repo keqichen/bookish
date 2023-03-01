@@ -3,6 +3,7 @@ using System;
 using Bookish;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -11,9 +12,11 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Bookish.Migrations
 {
     [DbContext(typeof(BookishContext))]
-    partial class BookishContextModelSnapshot : ModelSnapshot
+    [Migration("20230301153314_UpdateDataType")]
+    partial class UpdateDataType
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -34,13 +37,11 @@ namespace Bookish.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("CheckIn")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<DateTime?>("CheckIn")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("CheckOut")
-                        .IsRequired()
-                        .HasColumnType("text");
+                    b.Property<DateTime?>("CheckOut")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("MemberId")
                         .HasColumnType("integer");

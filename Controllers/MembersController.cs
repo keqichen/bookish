@@ -25,6 +25,23 @@ public class MembersController : Controller
         );
     }
 
+    [HttpPost]
+    public IActionResult AddMember(AddMemberModel member)
+    {
+        using (context)
+        {
+            var newMember = new MemberModel (member.FirstName, member.LastName, member.Address);
+            context.Members!.Add(newMember);
+            context.SaveChanges();
+        }
+        return RedirectToAction("Members");
+    }
+
+        public IActionResult AddMember()
+    {
+        return View();
+    }
+
 // for saving data in the database;
     // public void Data()
     // {
