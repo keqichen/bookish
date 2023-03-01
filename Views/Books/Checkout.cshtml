@@ -2,8 +2,9 @@
 @model CheckOutModel;
 
 <form asp-controller="Books" asp-action="CheckOut" method="post">
+
     <label asp-for="BookId">Book ID: </label>
-    <input type="number" name="id" asp-for="BookId"></input>
+    <input type="number" name="bookid" asp-for="BookId"></input>
 
     <label asp-for="CheckOut">Check-out Date: </label>
     <input type="date" name="checkout" asp-for="CheckOut"></input>
@@ -12,4 +13,5 @@
     <input type="number" name="memberid" asp-for="MemberId"></input>
 
     <button type="submit">Submit</button>
+
 </form>

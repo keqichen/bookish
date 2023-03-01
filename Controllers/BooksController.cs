@@ -29,14 +29,14 @@ public class BooksController : Controller
     {
         using (context)
         {
-            var newBook = new BookModel (book.Title,book.Author);
+            var newBook = new BookModel(book.Title, book.Author);
             context.Books!.Add(newBook);
             context.SaveChanges();
         }
         return RedirectToAction("Books");
     }
 
-        public IActionResult AddBook()
+    public IActionResult AddBook()
     {
         return View();
     }
@@ -46,38 +46,36 @@ public class BooksController : Controller
     {
         using (context)
         {
-            var newCheckOut = new BookModel (book.BookId, book.CheckOut, book.MemberId);
+            BookModel newCheckOut = new BookModel(book.BookId, book.CheckOut, book.MemberId);
             //updating a existing book here
-            var bookedit = context.Books!.Find(book.BookId);
-            bookedit.MemberId = book.MemberId;
-            
+            BookModel? bookedit = context.Books.ToList().Find(i => i.Id == book.BookId);
+            bookedit.MemberId = newCheckOut.MemberId;
             context.SaveChanges();
         }
-        
+
         return RedirectToAction("Books");
     }
-
-            public IActionResult Checkout()
+    public IActionResult Checkout()
     {
         return View();
     }
 
 
-/*
-    public IActionResult AddMember(AddMemberModel member)
-    {
-        using (context)
+    /*
+        public IActionResult AddMember(AddMemberModel member)
         {
-            var newMember = new MemberModel (member.FirstName, member.LastName, member.Address);
-            context.Members!.Add(newMember);
-            context.SaveChanges();
+            using (context)
+            {
+                var newMember = new MemberModel (member.FirstName, member.LastName, member.Address);
+                context.Members!.Add(newMember);
+                context.SaveChanges();
+            }
+            return RedirectToAction("Members");
         }
-        return RedirectToAction("Members");
-    }
 
-        public IActionResult AddMember()
-    {
-        return View();
-    }
-*/
+            public IActionResult AddMember()
+        {
+            return View();
+        }
+    */
 }
