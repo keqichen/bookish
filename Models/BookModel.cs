@@ -7,6 +7,8 @@ public class BookModel
     public string Author { get; set; }
     // public string CheckOut { get; set; }
     // public string CheckIn { get; set; }
+
+   
     public Nullable<DateTime> CheckOut { get; set; }
     public Nullable<DateTime> CheckIn { get; set; }
     public Nullable<int> MemberId { get; set; }

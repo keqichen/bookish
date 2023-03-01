@@ -12,8 +12,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace Bookish.Migrations
 {
     [DbContext(typeof(BookishContext))]
-    [Migration("20230301111032_UpdateMemberModelDB")]
-    partial class UpdateMemberModelDB
+    [Migration("20230301182359_BookishDB")]
+    partial class BookishDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -37,11 +37,11 @@ namespace Bookish.Migrations
                         .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<string>("CheckIn")
-                        .HasColumnType("text");
+                    b.Property<DateTime?>("CheckIn")
+                        .HasColumnType("timestamp with time zone");
 
-                    b.Property<string>("CheckOut")
-                        .HasColumnType("text");
+                    b.Property<DateTime?>("CheckOut")
+                        .HasColumnType("timestamp with time zone");
 
                     b.Property<int?>("MemberId")
                         .HasColumnType("integer");
