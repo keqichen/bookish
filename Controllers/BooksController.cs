@@ -27,14 +27,14 @@ public class BooksController : Controller
     }
 
 // for saving data in the database;
-    public void Data()
-    {
-        using (context)
-        {
-            var book = new BookModel(2, "A good story", "Michael", "2012", "2013");
-            context.Books!.Add(book);
-            context.SaveChanges();
-        }
-    }
+    // public void Data()
+    // {
+    //     using (context)
+    //     {
+    //         var book = new BookModel(2, "A good story", "Michael", "2012", "2013", 1);
+    //         context.Books!.Add(book);
+    //         context.SaveChanges();
+    //     }
+    // }
 
 }

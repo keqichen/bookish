@@ -9,14 +9,12 @@ public class MemberModel
     public string Address { get; set; }
 
     // how to link BookModel.Id here?
-    public int BookId { get; set; }
     
-    public MemberModel (int id, string firstName, string lastName, string address, int bookId){
+    
+    public MemberModel (int id, string firstName, string lastName, string address){
         Id = id;
         FirstName = firstName;
         LastName = lastName;
         Address = address;
-        BookId = bookId;
     }
 }
-

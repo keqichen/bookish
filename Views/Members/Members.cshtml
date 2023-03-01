@@ -2,7 +2,7 @@
 @model List<MemberModel>;
 
 @{
-    ViewData["Title"] = "Books";
+    ViewData["Title"] = "Members";
 }
 
 <h1>@ViewData["Title"]</h1>
@@ -10,11 +10,10 @@
 <div>
 <table>
     <tr>
-    <th>Title</th>
-    <th>Author</th>
     <th>Id</th>
-    <th>Check-out Date</th>
-    <th>Check-in Date</th>
+    <th>First name</th>
+    <th>Last name</th>
+    <th>Address</th>
 </tr> 
 
 @foreach(MemberModel member in Model){
@@ -23,7 +22,6 @@
     <td>@member.FirstName</td>
     <td>@member.LastName</td>
     <td>@member.Address</td>
-    <td>@member.BookId</td>
 </tr> 
 }
 

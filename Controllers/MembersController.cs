@@ -5,11 +5,11 @@ using Bookish.Models;
 
 namespace Bookish.Controllers;
 
-public class MemberController : Controller
+public class MembersController : Controller
 {
-    private readonly ILogger<BooksController> _logger;
+    private readonly ILogger<MembersController> _logger;
 
-    public MemberController(ILogger<BooksController> logger)
+    public MembersController(ILogger<MembersController> logger)
     {
         _logger = logger;
     }
@@ -19,7 +19,7 @@ public class MemberController : Controller
     //get method;
     public IActionResult Members()
     {
-        var member = context.Books!.ToList();
+        var member = context.Members!.ToList();
         return View(
             member
         );

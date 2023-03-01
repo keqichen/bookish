@@ -15,6 +15,7 @@
     <th>Id</th>
     <th>Check-out Date</th>
     <th>Check-in Date</th>
+    <th>Member ID</th>
 </tr> 
 
 @foreach(BookModel book in Model){
@@ -24,6 +25,7 @@
     <td>@book.Id</td>
     <td>@book.CheckOut</td>
     <td>@book.CheckIn</td>
+    <td>@book.MemberId</td>
 </tr> 
 }
 
