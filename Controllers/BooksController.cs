@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Bookish.Models;
 
 
+
 namespace Bookish.Controllers;
 
 public class BooksController : Controller
@@ -24,6 +25,19 @@ public class BooksController : Controller
         return View(
             book
         );
+    }
+
+    [HttpPost]
+    public IActionResult AddBook(AddBook book)
+    {
+        using (context)
+        {
+            var newBook = new BookModel (book.Title,book.Author);
+            context.Books!.Add(newBook);
+            context.SaveChanges();
+        }
+
+        return RedirectToAction("Books");
     }
 
 // for saving data in the database;

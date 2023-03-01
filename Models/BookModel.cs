@@ -18,5 +18,10 @@ public class BookModel
         CheckIn = checkIn ?? "n/a";
         MemberId = memberId;
     }
+
+    public BookModel (string title, string author){
+        Title=title;
+        Author=author;
+    }
 }
 
