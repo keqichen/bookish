@@ -1,7 +1,14 @@
+using Bookish;
+using Bookish.Controllers;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+
+//whenever we have a type of ICanDoTheThing, we give bookServices as an object;
+builder.Services.AddTransient<ICanDoTheThing, bookServices>();
+builder.Services.AddTransient<MembersManagement, memberServices>();
 
 var app = builder.Build();
 
@@ -19,6 +26,9 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+//Solve the datetime (kind=unspecified) error;
+AppContext.SetSwitch("Npgsql.EnableLegacyTimestampBehavior", true);
 
 app.MapControllerRoute(
     name: "default",

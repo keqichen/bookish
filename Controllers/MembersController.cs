@@ -5,13 +5,22 @@ using Bookish.Models;
 
 namespace Bookish.Controllers;
 
+public interface MembersManagement
+{
+    List<MemberModel> GenerateMemberList();
+    
+}
+
 public class MembersController : Controller
 {
     private readonly ILogger<MembersController> _logger;
+    
+    private readonly MembersManagement _memberServices;
 
-    public MembersController(ILogger<MembersController> logger)
+    public MembersController(ILogger<MembersController> logger, MembersManagement memberServices)
     {
         _logger = logger;
+        _memberServices = memberServices;
     }
 
     BookishContext context = new BookishContext();
