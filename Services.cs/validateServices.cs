@@ -13,9 +13,14 @@ public class validateServices
         }
     }
 
-    // public void validateCheckOutBook()
-    // {
+    public void validateCheckOutDate(CheckOutModel book)
+    {
+        //check the correct syntax of date empty value;
+            if (book.CheckOut == null)
+            { 
+                throw new ArgumentOutOfRangeException ("This input is invalid");
+            }
 
-    // }
+    }
 
 }

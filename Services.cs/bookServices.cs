@@ -32,6 +32,7 @@ public class bookServices : ICanDoTheThing
 
     public void CheckOutNewBook(CheckOutModel book)
     {
+        _validation.validateCheckOutDate(book);
         using (context)
         {
             BookModel newCheckOut = new BookModel(book.BookId, book.CheckOut, book.MemberId);
