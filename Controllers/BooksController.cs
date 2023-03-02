@@ -10,8 +10,9 @@ public interface ICanDoTheThing
 {
     List<BookModel> GenerateBookList();
     void AddNewBook(AddBookModel book);
+    void CheckOutNewBook(CheckOutModel book);
 
-   // String Method2();
+    // String Method2();
 }
 
 public class BooksController : Controller
@@ -27,7 +28,7 @@ public class BooksController : Controller
         _logger = logger;
         _bookServices = bookServices;
     }
-    
+
     BookishContext context = new BookishContext();
 
     //get method;
@@ -42,15 +43,11 @@ public class BooksController : Controller
     }
 
     [HttpPost]
-    public IActionResult AddBook()
+    public IActionResult AddBook(AddBookModel book)
+    // we still need the parameter as we need to pass in user's input from the form.
     {
-        _bookServices.AddNewBook(AddBookModel book);
-        // using (context)
-        // {
-        //     var newBook = new BookModel(book.Title, book.Author);
-        //     context.Books!.Add(newBook);
-        //     context.SaveChanges();
-        // }
+        _bookServices.AddNewBook(book);
+        //and here we can use the "book" argument directly;
         return RedirectToAction("Books");
     }
 
@@ -62,50 +59,12 @@ public class BooksController : Controller
     [HttpPost]
     public IActionResult CheckOut(CheckOutModel book)
     {
-        using (context)
-        {
-            BookModel newCheckOut = new BookModel(book.BookId, book.CheckOut, book.MemberId);
-            Console.WriteLine(book.CheckOut);
-
-            //updating a existing book here
-            BookModel? bookedit = context.Books.ToList().Find(i => i.Id == book.BookId);
-
-            //pass in user's input to the Books DB;
-            bookedit.MemberId = newCheckOut.MemberId;
-            
-            //need to change the formatting in the frontend;
-            bookedit.CheckOut = newCheckOut.CheckOut;
-
-            //we could generate the whole datetime automatically
-            bookedit.CheckOut = DateTime.Now;
-            context.SaveChanges();
-        }
-
+        _bookServices.CheckOutNewBook(book);
         return RedirectToAction("Books");
     }
 
-   
     public IActionResult Checkout()
     {
         return View();
     }
-
-
-    /*
-        public IActionResult AddMember(AddMemberModel member)
-        {
-            using (context)
-            {
-                var newMember = new MemberModel (member.FirstName, member.LastName, member.Address);
-                context.Members!.Add(newMember);
-                context.SaveChanges();
-            }
-            return RedirectToAction("Members");
-        }
-
-            public IActionResult AddMember()
-        {
-            return View();
-        }
-    */
 }

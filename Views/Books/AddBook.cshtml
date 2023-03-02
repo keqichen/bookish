@@ -1,5 +1,7 @@
 @using Bookish.Models;
+@using Bookish.Controllers;
 @model AddBookModel;
+
 
 <form asp-controller="Books" asp-action="AddBook" method="post">
     <label asp-for="Title">Book title: </label>
@@ -8,6 +10,17 @@
     <label asp-for="Author">Book author: </label>
     <input type="text" name="author" asp-for="Author"></input>
 
-    <button type="submit">Submit</button>
+    <button type="submit">Add a new book</button>
 </form>
+
+@* <form asp-controller="Books" asp-action="AddBook" method="post">
+    <label asp-for="Title">Book title: </label>
+    <input type="text" name="title" asp-for="Title"></input>
+
+    <label asp-for="Author">Book author: </label>
+    <input type="text" name="author" asp-for="Author"></input>
+
+    <button type="submit">Delete a book</button>
+</form> *@
+
 

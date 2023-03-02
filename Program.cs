@@ -9,6 +9,7 @@ builder.Services.AddControllersWithViews();
 //whenever we have a type of ICanDoTheThing, we give bookServices as an object;
 builder.Services.AddTransient<ICanDoTheThing, bookServices>();
 builder.Services.AddTransient<MembersManagement, memberServices>();
+builder.Services.AddTransient<validateServices, validateServices>();
 
 var app = builder.Build();
 
