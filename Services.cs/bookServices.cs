@@ -1,17 +1,20 @@
 using Bookish.Controllers;
 using Bookish.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace Bookish;
 //use dependency injection;
 public class bookServices : ICanDoTheThing
 {
     private readonly validateServices _validation;
 
-    public bookServices (validateServices validation)
+    public bookServices(validateServices validation)
     {
         _validation = validation;
     }
-    
+
     BookishContext context = new BookishContext();
+
     //First method
     public List<BookModel> GenerateBookList()
     {
@@ -54,4 +57,13 @@ public class bookServices : ICanDoTheThing
 
     }
 
+// have a different model only including string;
+// do queries: where (title) || where (author)
+public List<BookModel> SearchBook(SearchModel searchInput)
+    {
+        var matchingBooks = context.Books
+            .Where(s => s.Title == searchInput.SearchInput || s.Author == searchInput.SearchInput)
+            .ToList();   
+        return matchingBooks;       
+    }
 }

@@ -1,0 +1,38 @@
+@using Bookish.Models;
+@model MyViewModel;
+
+@* use both searchmodel,myviewmodel.searchresult *@
+
+<form asp-controller="Books" asp-action="SearchBook" method="post">
+    <label asp-for="@Model.Search.SearchInput">Search: </label>
+    <input asp-for="@Model.Search.SearchInput"></input>
+    <button type="submit">Submit</button>
+</form>
+
+<div>
+<table>
+    <tr>
+    <th>Title</th>
+    <th>Author</th>
+    <th>Id</th>
+    <th>Check-out Date</th>
+    <th>Check-in Date</th>
+    <th>Member ID</th>
+</tr> 
+
+@foreach(BookModel book in Model.SearchResultList){
+<tr>
+    <td>@book.Title</td>
+    <td>@book.Author</td>
+    <td>@book.Id</td>
+    <td>@book.CheckOut</td>
+    <td>@book.CheckIn</td>
+    <td>@book.MemberId</td>
+</tr> 
+}
+
+</table>
+</div>
+
+
+

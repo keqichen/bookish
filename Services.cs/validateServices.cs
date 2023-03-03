@@ -9,18 +9,17 @@ public class validateServices
     {
         if (String.IsNullOrEmpty(book.Title))
         {
-            throw new ArgumentOutOfRangeException ("This input is invalid");
+            throw new ArgumentOutOfRangeException("This input is invalid");
         }
     }
 
     public void validateCheckOutDate(CheckOutModel book)
     {
         //check the correct syntax of date empty value;
-            if (book.CheckOut == null)
-            { 
-                throw new ArgumentOutOfRangeException ("This input is invalid");
-            }
-
+        if (book.CheckOut == null)
+        {
+            throw new ArgumentOutOfRangeException("This input is invalid");
+        }
     }
 
 }

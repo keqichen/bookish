@@ -11,6 +11,7 @@ public interface ICanDoTheThing
     List<BookModel> GenerateBookList();
     void AddNewBook(AddBookModel book);
     void CheckOutNewBook(CheckOutModel book);
+    List<BookModel> SearchBook(SearchModel searchInput);
 
     // String Method2();
 }
@@ -66,5 +67,31 @@ public class BooksController : Controller
     public IActionResult Checkout()
     {
         return View();
+    }
+
+    [HttpPost]
+    public IActionResult SearchBook(SearchModel searchInput)
+    {
+        var searchResult = _bookServices.SearchBook(searchInput);
+        return View(searchResult);
+    }
+
+    public IActionResult SearchBook()
+    {
+        return View();
+    }
+
+    public ActionResult MyView()
+    {
+        var searchResultList = SearchBook(SearchModel searchInput); // genearte the search list;
+        var search = new SearchModel(); // how to pass userinput in here?
+
+        var viewModel = new MyViewModel
+        {
+            SearchResultList = (List<BookModel>)searchResultList,
+            Search = (SearchModel)search
+        };
+
+        return View(viewModel);
     }
 }
