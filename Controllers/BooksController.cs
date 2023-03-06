@@ -81,17 +81,16 @@ public class BooksController : Controller
         return View();
     }
 
-    public ActionResult MyView()
+    public ActionResult MyView(SearchModel searchInput)
     {
-        var searchResultList = SearchBook(SearchModel searchInput); // genearte the search list;
-        var search = new SearchModel(); // how to pass userinput in here?
-
+        var searchResultList = SearchBook(searchInput); // genearte the search list;
+        var search = new SearchModel{SearchInput=searchInput.ToString()}; // how to pass userinput in here?
         var viewModel = new MyViewModel
         {
             SearchResultList = (List<BookModel>)searchResultList,
             Search = (SearchModel)search
         };
-
+        ViewBag.Check=true;
         return View(viewModel);
     }
 }

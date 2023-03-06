@@ -1,13 +1,12 @@
 @using Bookish.Models;
 @model MyViewModel;
 
-@* use both searchmodel,myviewmodel.searchresult *@
 
-<form asp-controller="Books" asp-action="SearchBook" method="post">
+@using (Html.BeginForm("SearchBook","Books",FormMethod.Post)){
     <label asp-for="@Model.Search.SearchInput">Search: </label>
     <input asp-for="@Model.Search.SearchInput"></input>
     <button type="submit">Submit</button>
-</form>
+}
 
 <div>
 <table>
@@ -33,6 +32,7 @@
 
 </table>
 </div>
+
 
 
 
