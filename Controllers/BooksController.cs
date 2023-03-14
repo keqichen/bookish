@@ -72,8 +72,17 @@ public class BooksController : Controller
     [HttpPost]
     public IActionResult SearchBook(SearchModel searchInput)
     {
-        var searchResult = _bookServices.SearchBook(searchInput);
-        return View(searchResult);
+        //set this to show all books by default;
+        List<BookModel> searchResult = new List<BookModel>();
+        searchResult=_bookServices.GenerateBookList();
+
+        if (!String.IsNullOrEmpty(searchInput.ToString()))
+        {
+            searchResult = _bookServices.SearchBook(searchInput);
+        } 
+
+        BookViewModel bookView = new BookViewModel(searchResult);
+        return View(bookView);
     }
 
     public IActionResult SearchBook()
@@ -81,16 +90,16 @@ public class BooksController : Controller
         return View();
     }
 
-    public ActionResult MyView(SearchModel searchInput)
-    {
-        var searchResultList = SearchBook(searchInput); // genearte the search list;
-        var search = new SearchModel{SearchInput=searchInput.ToString()}; // how to pass userinput in here?
-        var viewModel = new MyViewModel
-        {
-            SearchResultList = (List<BookModel>)searchResultList,
-            Search = (SearchModel)search
-        };
-        ViewBag.Check=true;
-        return View(viewModel);
-    }
+    // public ActionResult MyView(SearchModel searchInput)
+    // {
+    //     var searchResultList = SearchBook(searchInput); // genearte the search list;
+    //     var search = new SearchModel{SearchInput=searchInput.ToString()}; // how to pass userinput in here?
+    //     var viewModel = new MyViewModel
+    //     {
+    //         SearchResultList = (List<BookModel>)searchResultList,
+    //         Search = (SearchModel)search
+    //     };
+    //     //ViewBag.Check=true;
+    //     return View(viewModel);
+    // }
 }

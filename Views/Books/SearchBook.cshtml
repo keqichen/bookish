@@ -1,13 +1,17 @@
 @using Bookish.Models;
-@model MyViewModel;
+@model BookViewModel;
 
+@* @if (Model.SearchResultList.Count > 0){ *@
 
 @using (Html.BeginForm("SearchBook","Books",FormMethod.Post)){
     <label asp-for="@Model.Search.SearchInput">Search: </label>
     <input asp-for="@Model.Search.SearchInput"></input>
     <button type="submit">Submit</button>
 }
+@* } *@
 
+@* add a if condition, if searchresultlist is null,don't show *@
+@* or, show all books by default *@
 <div>
 <table>
     <tr>
