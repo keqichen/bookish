@@ -69,25 +69,21 @@ public class BooksController : Controller
         return View();
     }
 
-    [HttpPost]
-    public IActionResult SearchBook(SearchModel searchInput)
+   // [HttpGet
+    public IActionResult SearchBook(BookViewModel bookSearch)
     {
         //set this to show all books by default;
         List<BookModel> searchResult = new List<BookModel>();
+        
         searchResult=_bookServices.GenerateBookList();
 
-        if (!String.IsNullOrEmpty(searchInput.ToString()))
+        if (!String.IsNullOrEmpty(bookSearch.Search.SearchInput))
         {
-            searchResult = _bookServices.SearchBook(searchInput);
+            searchResult = _bookServices.SearchBook(bookSearch.Search);
         } 
 
         BookViewModel bookView = new BookViewModel(searchResult);
         return View(bookView);
-    }
-
-    public IActionResult SearchBook()
-    {
-        return View();
     }
 
     // public ActionResult MyView(SearchModel searchInput)

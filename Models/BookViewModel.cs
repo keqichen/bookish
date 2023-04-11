@@ -15,5 +15,5 @@ public class BookViewModel
     {
         SearchResultList = books;
     }
-    public SearchModel Search {get;set;}
+    public SearchModel Search {get;set;} = new SearchModel ();
 }

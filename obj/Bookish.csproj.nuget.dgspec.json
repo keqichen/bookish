@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Training\\Bookish\\Bookish.csproj": {}
+    "C:\\Training\\bookish\\Bookish.csproj": {}
   },
   "projects": {
-    "C:\\Training\\Bookish\\Bookish.csproj": {
+    "C:\\Training\\bookish\\Bookish.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Training\\Bookish\\Bookish.csproj",
+        "projectUniqueName": "C:\\Training\\bookish\\Bookish.csproj",
         "projectName": "Bookish",
-        "projectPath": "C:\\Training\\Bookish\\Bookish.csproj",
+        "projectPath": "C:\\Training\\bookish\\Bookish.csproj",
         "packagesPath": "C:\\Users\\keqche\\.nuget\\packages\\",
-        "outputPath": "C:\\Training\\Bookish\\obj\\",
+        "outputPath": "C:\\Training\\bookish\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\keqche\\AppData\\Roaming\\NuGet\\NuGet.Config"
@@ -72,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.406\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.407\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -57,8 +57,6 @@ public class bookServices : ICanDoTheThing
 
     }
 
-// have a different model only including string;
-// do queries: where (title) || where (author)
 public List<BookModel> SearchBook(SearchModel searchInput)
     {
         var matchingBooks = context.Books
